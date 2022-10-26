@@ -1,0 +1,7 @@
+plugins {
+    id 'com.innowise.innowiseaqatask.convention-plugin'
+    id "io.qameta.allure" version "2.11.1"
+}
+
+group 'com.innowise'
+version '0.0.1'
