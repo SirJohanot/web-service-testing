@@ -1,7 +1,10 @@
 plugins {
-    id 'com.innowise.innowiseaqatask.convention-plugin'
+    id 'com.innowise.webservicetesting.convention-plugin'
     id "io.qameta.allure" version "2.11.1"
 }
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
 
 group 'com.innowise'
 version '0.0.1'
