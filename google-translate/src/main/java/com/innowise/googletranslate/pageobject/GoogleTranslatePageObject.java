@@ -17,7 +17,7 @@ public class GoogleTranslatePageObject {
 
     private static final By TARGET_LANGUAGE_SELECTION_BUTTON_BY = By.xpath("//button[@aria-label='More target languages']");
     private static final By TRANSLATED_TEXT_BY = By.xpath("//span[@jsname='W297wb']");
-    private static final String TARGET_LANGUAGE_BUTTON_XPATH = "//*[@id=\"yDmH0d\"]/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[3]/div/div[2]/div[div ='%s']";
+    private static final String TARGET_LANGUAGE_BUTTON_XPATH = "//*[@id=\"yDmH0d\"]/c-wiz/div/div[2]/c-wiz/div[2]/c-wiz/div[1]/div[1]/c-wiz/div[2]/c-wiz/div[2]/div/div[3]/div/div[2]/div[div='%s']";
 
     private final WebDriver driver;
 
