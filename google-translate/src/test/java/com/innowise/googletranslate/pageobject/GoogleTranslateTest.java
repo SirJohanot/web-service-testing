@@ -15,7 +15,7 @@ public class GoogleTranslateTest {
     private WebDriver driver;
     private GoogleTranslatePageObject pageObject;
 
-    @Step("Launch the web browser and go to Google Translate")
+    @Step("Launch the web browser and go to https://translate.google.com/")
     @BeforeEach
     public void setup() {
         driver = new ChromeDriver();

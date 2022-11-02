@@ -20,7 +20,7 @@ public class OnlinerTest {
     private static ProductOffersPageObject productOffersPageObject;
     private static ShoppingCartPageObject shoppingCartPageObject;
 
-    @Step("Launch the web browser and go to Onliner")
+    @Step("Launch the web browser and go to https://onliner.by/")
     @BeforeAll
     public static void setup() {
         driver = new ChromeDriver();
