@@ -13,11 +13,11 @@ public class HomePageObject {
 
     private static final By SEARCH_INPUT_BY = By.xpath("//input[@class='fast-search__input']");
 
-    private static final String SEARCH_RESULT_XPATH = "//*[@id=\"search-page\"]//a[text()='%s']";
-    private static final String VIEW_OFFERS_BUTTON_XPATH = "//*[@id=\"search-page\"]//a[text()='%s']/../../..//a[contains(@class, 'product__button')]";
+    private static final By SEARCH_RESULTS_IFRAME_BY = By.xpath("//iframe[@class='modal-iframe']");
+    private static final String SEARCH_RESULT_ELEMENT_XPATH = "//ul[@class='search__results']//a[text()='%s']/../..";
+    private static final By VIEW_OFFERS_OF_PRODUCT_ELEMENT_BUTTON_BY = By.xpath("//a[contains(@class, 'product__button')]");
 
     private final WebDriver driver;
-
     private final WebDriverWait webDriverWait;
 
     public HomePageObject(WebDriver driver) {
@@ -33,16 +33,20 @@ public class HomePageObject {
 
     @Step("Click on [View Offers] for {productName}")
     public ProductOffersPageObject clickViewOffers(String productName) {
-        String completeViewOffersButtonXpathString = String.format(VIEW_OFFERS_BUTTON_XPATH, productName);
-        By viewOffersButtonBy = By.xpath(completeViewOffersButtonXpathString);
-        WebElement offersButtonElement = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(viewOffersButtonBy));
+        WebElement searchResultElement = getSearchResultElement(productName);
+        WebElement offersButtonElement = searchResultElement.findElement(VIEW_OFFERS_OF_PRODUCT_ELEMENT_BUTTON_BY);
         offersButtonElement.click();
         return new ProductOffersPageObject(driver);
     }
 
-    public WebElement getProductFromSearchResults(String productName) {
-        driver.switchTo().frame(0);
-        String completeProductXpathString = String.format(SEARCH_RESULT_XPATH, productName);
+    public WebElement switchToSearchResultsFrameAndGetProductSearchResult(String productName) {
+        WebElement searchResultsIframe = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(SEARCH_RESULTS_IFRAME_BY));
+        driver.switchTo().frame(searchResultsIframe);
+        return getSearchResultElement(productName);
+    }
+
+    private WebElement getSearchResultElement(String productName) {
+        String completeProductXpathString = String.format(SEARCH_RESULT_ELEMENT_XPATH, productName);
         By searchResultBy = By.xpath(completeProductXpathString);
         return webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(searchResultBy));
     }
