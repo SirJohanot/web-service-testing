@@ -1,0 +1,5 @@
+rootProject.name = 'web-service-testing'
+include 'google-translate'
+include 'onliner'
+include 'relax'
+
