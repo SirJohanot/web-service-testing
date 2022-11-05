@@ -1,7 +1,7 @@
 plugins {
-    id 'com.innowise.webservicetesting.convention-plugin'
+    id 'com.patiun.webservicetesting.convention-plugin'
     id "io.qameta.allure" version "2.11.1"
 }
 
-group 'com.innowise'
+group 'com.patiun'
 version '0.0.1'
