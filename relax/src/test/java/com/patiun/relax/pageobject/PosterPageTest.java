@@ -3,6 +3,7 @@ package com.patiun.relax.pageobject;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.qameta.allure.Story;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,11 +26,11 @@ public class PosterPageTest {
         posterPageObject.closeAdvertisement();
     }
 
-//    @Step("Leave Relax and quit the web browser")
-//    @AfterEach
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @Step("Leave Relax and quit the web browser")
+    @AfterEach
+    public void tearDown() {
+        driver.quit();
+    }
 
     @Test
     @Story("User tries to view an event's category and feedback section")
