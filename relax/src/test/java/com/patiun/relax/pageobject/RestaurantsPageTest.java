@@ -50,12 +50,10 @@ public class RestaurantsPageTest {
         EstablishmentPageObject establishmentPageObject = restaurantsPageObject.clickOnSearchResult(1);
         //when
         String resultDistrict = establishmentPageObject.getDistrict();
-        boolean resultTakeout = establishmentPageObject.hasTakeout();
         String resultCuisines = establishmentPageObject.getCuisines();
         boolean resultContainsTheRequiredCuisine = resultCuisines.contains(CUISINE);
         //then
         Assertions.assertEquals(DISTRICT, resultDistrict);
-        Assertions.assertTrue(resultTakeout);
         Assertions.assertTrue(resultContainsTheRequiredCuisine);
     }
 

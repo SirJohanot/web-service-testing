@@ -10,12 +10,16 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 public class EstablishmentPageTest {
 
     private static final String ESTABLISHMENT_NAME = "Luna";
     private static final String ESTABLISHMENT_PHONE_NUMBER = "tel:+375 293330074";
     private static final String ESTABLISHMENT_ADDRESS = "Могилев, ул. Ленинская, 22";
-    private static final String ESTABLISHMENT_WORKING_HOURS = "до 00:00";
+    private static final List<String> ESTABLISHMENT_WORKING_HOURS = Arrays.asList("12:00—00:00", "12:00—00:00", "12:00—00:00", "12:00—00:00", "12:00—02:00", "14:00—02:00", "14:00—00:00");
 
     private WebDriver driver;
     private HomePageObject homePageObject;
@@ -45,7 +49,7 @@ public class EstablishmentPageTest {
         //when
         String actualPhoneNumber = establishmentPageObject.getPhoneNumber();
         String actualAddress = establishmentPageObject.getAddress();
-        String actualWorkingHours = establishmentPageObject.getWorkingHours();
+        List<String> actualWorkingHours = establishmentPageObject.getWorkingHours();
         //then
         Assertions.assertEquals(ESTABLISHMENT_PHONE_NUMBER, actualPhoneNumber);
         Assertions.assertEquals(ESTABLISHMENT_ADDRESS, actualAddress);
